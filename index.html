@@ -341,7 +341,7 @@ if (scene == "END"){
 			}
 			printout=printout.slice(0,-2); printout+=".";
 			atm[0]=atm[0]/(pArray.length/2);
-			if (fade==0&&atm[0]>=2){printout+="\n\nTHE GOOD ENDING\n\n"; fade=1;sendScene="GEND";}
+			if (fade==0&&atm[0]>=1.5){printout+="\n\nTHE GOOD ENDING\n\n"; fade=1;sendScene="GEND";}
 			else{printout+="\n\nTHE BAD ENDING\n\n"; stateM=100;}
 		
 		}
