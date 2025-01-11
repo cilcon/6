@@ -365,6 +365,9 @@ if (scene == "intro"){
 }
 if (scene == "M"){
 	if (mov[0]==0){
+		if (canvasX > 12 && canvasX < 124 && canvasY > 346 && canvasY < 391){
+			if (pArray.length>0){fade=1; sendScene="END";}
+		}
 		if (canvasX > 231 && canvasX < 444 && canvasY > 91 && canvasY < 130){
 			movM[0]=100; focus="V"; 
 			mat[4]++; if (mat[4]>4){mat[4]=1;}
