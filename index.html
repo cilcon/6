@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+background: url(fade/BG.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+p.a {
+  white-space: pre;
+  color: white;
+  font-weight:bold;
+}
+#copyButton {
+	  background-color: #275c3f;
+	  color:white;
+	  padding: 10px 20px; 
+	  border:2px solid black;
+	  font-size: 25px; 
+	  cursor: pointer; 
+	  text-align:center; margin: 0 auto;
+	  text-shadow: 1.5px 1.5px black;
+	}
+#copyButton:hover {
+  background-color: green; 
+}
+#copyButton:active {
+  background: #04bd66;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+#button1 {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.3);
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border:1px solid black;
+  margin-top:20px;
+  text-shadow: 1.5px 1.5px black;
+}
+#button2 {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.3);
+  background-color: #de3c23;
+  border: none;
+  color: white;
+  padding: 10px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border:1px solid black;
+  margin-top:20px;
+  text-shadow: 1.5px 1.5px black;
+}
+#button1:hover {
+  background-color: #015425;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.3), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
+}
+#button2:hover {
+  background-color: #b0220c;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.3), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
+}
+
+</style>
+
+<body>
+
+<canvas id="myCanvas" onload = 'move()' onclick = "clickfunc()" width="800" height="400" style=" padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 0px;
+    display: block;border:1px solid black;">
+</canvas>
+
+
+<img id="foutline"  style="display:none; visibility:hidden;" src="fade/outline.png"> <img id="FUC"  style="display:none; visibility:hidden;" src="fade/UC.png">  <img id="fshortcuts"  style="display:none; visibility:hidden;" src="fade/shortcuts.png">  <img style="display:none; visibility:hidden;" src="fade/BG.jpg">
+<img id="error1"  style="display:none; visibility:hidden;" src="fade/error1.png"><img id="error2"  style="display:none; visibility:hidden;" src="fade/error2.png"><img id="error3"  style="display:none; visibility:hidden;" src="fade/error3.png"><img id="error4"  style="display:none; visibility:hidden;" src="fade/error4.png"><img id="error5"  style="display:none; visibility:hidden;" src="fade/error5.png"><img id="error6"  style="display:none; visibility:hidden;" src="fade/error6.png"><img id="error7"  style="display:none; visibility:hidden;" src="fade/error7.png"><img id="error8"  style="display:none; visibility:hidden;" src="fade/error8.png">
+<img style="display:none; visibility:hidden;" src="fade/fadeanim/0001.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0002.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0003.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0004.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0005.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0006.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0007.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0008.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0009.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0010.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0011.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0012.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0013.png"><img style="display:none; visibility:hidden;" src="fade/fadeanim/0014.png">
+
+<img id="intro" style="display:none; visibility:hidden;" src="title/intro.png">
+<img id="intro2" style="display:none; visibility:hidden;" src="title/intro2.png">
+<img id="intro3" style="display:none; visibility:hidden;" src="title/intro3.png">
+<img id="intro4" style="display:none; visibility:hidden;" src="title/intro4.png">
+<img id="intro5" style="display:none; visibility:hidden;" src="title/intro5.png">
+<img id="intro6" style="display:none; visibility:hidden;" src="title/intro6.png">
+<img id="intro7" style="display:none; visibility:hidden;" src="title/intro7.png">
+<img id="intro8" style="display:none; visibility:hidden;" src="title/intro8.png">
+
+<img id="main" style="display:none; visibility:hidden;" src="M/main.png">
+<img id="date" style="display:none; visibility:hidden;" src="M/date.png">
+<img id="dateL" style="display:none; visibility:hidden;" src="M/dateL.png">
+<img id="dateR" style="display:none; visibility:hidden;" src="M/dateR.png">
+<img id="date2A" style="display:none; visibility:hidden;" src="M/date2A.png">
+<img id="date2B" style="display:none; visibility:hidden;" src="M/date2B.png">
+<img id="brainBG" style="display:none; visibility:hidden;" src="M/brainBG.png">
+<img id="brain1" style="display:none; visibility:hidden;" src="M/brain1.png">
+<img id="brain2" style="display:none; visibility:hidden;" src="M/brain2.png">
+<img id="brain3" style="display:none; visibility:hidden;" src="M/brain3.png">
+<img id="brain4" style="display:none; visibility:hidden;" src="M/brain4.png">
+<img id="brain5" style="display:none; visibility:hidden;" src="M/brain5.png">
+
+<img id="gym1" style="display:none; visibility:hidden;" src="M/gym1.png">
+<img id="gym2" style="display:none; visibility:hidden;" src="M/gym2.png">
+<img id="gym3" style="display:none; visibility:hidden;" src="M/gym3.png">
+
+<img id="gym1B" style="display:none; visibility:hidden;" src="M/gym1B.png">
+<img id="gym2B" style="display:none; visibility:hidden;" src="M/gym2B.png">
+<img id="gym3B" style="display:none; visibility:hidden;" src="M/gym3B.png">
+
+<img id="gym1C" style="display:none; visibility:hidden;" src="M/gym1C.png">
+<img id="gym2C" style="display:none; visibility:hidden;" src="M/gym2C.png">
+<img id="gym3C" style="display:none; visibility:hidden;" src="M/gym3C.png">
+
+<img id="gym1D" style="display:none; visibility:hidden;" src="M/gym1D.png">
+<img id="gym2D" style="display:none; visibility:hidden;" src="M/gym2D.png">
+<img id="gym3D" style="display:none; visibility:hidden;" src="M/gym3D.png">
+
+<img style="display:none; visibility:hidden;" src="M/workout/1.png">
+<img style="display:none; visibility:hidden;" src="M/workout/2.png">
+<img style="display:none; visibility:hidden;" src="M/workout/3.png">
+<img style="display:none; visibility:hidden;" src="M/workout/4.png">
+<img style="display:none; visibility:hidden;" src="M/workout/5.png">
+<img style="display:none; visibility:hidden;" src="M/workout/6.png">
+
+<img id="pro" style="display:none; visibility:hidden;" src="M/pro.png">
+<img id="proL" style="display:none; visibility:hidden;" src="M/proL.png">
+<img id="proR" style="display:none; visibility:hidden;" src="M/proR.png">
+<img id="proW" style="display:none; visibility:hidden;" src="M/proW.png">
+<img id="pro2" style="display:none; visibility:hidden;" src="M/pro2.png">
+<img id="pro3" style="display:none; visibility:hidden;" src="M/pro3.png">
+<img id="pro3C" style="display:none; visibility:hidden;" src="M/pro3C.png">
+<img id="pro4" style="display:none; visibility:hidden;" src="M/pro4.png">
+
+<img style="display:none; visibility:hidden;" src="M/workout2/1.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/2.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/3.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/4.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/5.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/6.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/7.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/8.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/9.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/10.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/11.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/12.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/13.png">
+<img style="display:none; visibility:hidden;" src="M/workout2/14.png">
+
+
+<img style="display:none; visibility:hidden;" src="M/workout3/1.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/2.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/3.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/4.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/5.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/6.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/7.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/8.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/9.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/10.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/11.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/12.png">
+<img style="display:none; visibility:hidden;" src="M/workout3/13.png">
+
+<img style="display:none; visibility:hidden;" src="M/workout4/1.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/2.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/3.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/4.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/5.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/6.png">
+<img style="display:none; visibility:hidden;" src="M/workout4/7.png">
+
+<img id="end1" style="display:none; visibility:hidden;" src="M/end1.png">
+<img id="end2A" style="display:none; visibility:hidden;" src="M/end2A.png">
+<img id="end2B" style="display:none; visibility:hidden;" src="M/end2B.png">
+<img id="end3B" style="display:none; visibility:hidden;" src="M/end3B.png">
+
+<img id="gend" style="display:none; visibility:hidden;" src="M/gend.png">
+<img id="gendR" style="display:none; visibility:hidden;" src="M/gendR.png">
+<img id="gendL" style="display:none; visibility:hidden;" src="M/gendL.png">
+<img id="gend2" style="display:none; visibility:hidden;" src="M/gend2.png">
+<img id="gend3" style="display:none; visibility:hidden;" src="M/gend3.png">
+<img id="gend4" style="display:none; visibility:hidden;" src="M/gend4.png">
+<img id="gend5" style="display:none; visibility:hidden;" src="M/gend5.png">
+
+<img style="display:none; visibility:hidden;" src="cel/Katherine McNamara.png">
+<img style="display:none; visibility:hidden;" src="cel/Alica Schmidt.png">
+<img style="display:none; visibility:hidden;" src="cel/Anna Sawai.png">
+<img style="display:none; visibility:hidden;" src="cel/Aulii Cravalho.png">
+<img style="display:none; visibility:hidden;" src="cel/Billie Eilish.png">
+<img style="display:none; visibility:hidden;" src="cel/Brie Larson.png">
+<img style="display:none; visibility:hidden;" src="cel/Caylee Cowan.png">
+<img style="display:none; visibility:hidden;" src="cel/Chloe Grace Moretz.png">
+<img style="display:none; visibility:hidden;" src="cel/Emily Ratajkowski.png">
+<img style="display:none; visibility:hidden;" src="cel/Hailee Steinfeld.png">
+<img style="display:none; visibility:hidden;" src="cel/Jenna Ortega.png">
+<img style="display:none; visibility:hidden;" src="cel/Joey King.png">
+<img style="display:none; visibility:hidden;" src="cel/Lili Reinhart.png">
+<img style="display:none; visibility:hidden;" src="cel/Lily Rose Depp.png">
+<img style="display:none; visibility:hidden;" src="cel/Maya Hawke.png">
+<img style="display:none; visibility:hidden;" src="cel/Olivia Cooke.png">
+<img style="display:none; visibility:hidden;" src="cel/Olivia Rodrigo.png">
+<img style="display:none; visibility:hidden;" src="cel/Romee Strijd.png">
+<img style="display:none; visibility:hidden;" src="cel/Sabrina Carpenter.png">
+<img style="display:none; visibility:hidden;" src="cel/Emily Feld.png">
+<img style="display:none; visibility:hidden;" src="cel/Naomi Scott.png">
+<img style="display:none; visibility:hidden;" src="cel/Alicia Agneson.png">
+<img style="display:none; visibility:hidden;" src="cel/Natalie Alyn Lind.png">
+<img style="display:none; visibility:hidden;" src="cel/Isabela Merced.png">
+<img style="display:none; visibility:hidden;" src="cel/Madison Beer.png">
+
+</body>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "16px Arial";
+
+var wscreen = window.innerWidth; var hscreen = window.innerHeight; var initialw = wscreen;  var initialh = hscreen;  canvas.width = wscreen; canvas.height = canvas.width/2;
+
+//Scaling
+while (canvas.height > initialh-50){canvas.height-=1; canvas.width-=2;}
+
+//Correct for small width
+while (wscreen - canvas.width < 30){canvas.height-=1; canvas.width-=2;}
+
+ctx.scale(canvas.width/800,canvas.height/400);
+
+window.onresize = function(event) {wscreen = window.innerWidth;hscreen = window.innerHeight;initialw = wscreen; initialh = hscreen; canvas.width = wscreen;canvas.height = canvas.width/2;
+
+//Scaling
+while (canvas.height > initialh-90){
+	canvas.height-=1; 
+	canvas.width-=2;
+}
+
+//Correct for small width
+while (wscreen - canvas.width < 30){
+	canvas.height-=1; 
+	canvas.width-=2;
+}
+
+ctx.scale(canvas.width/800,canvas.height/400);
+}
+var canvasX = 0; 
+var canvasY = 0; 
+canvas.addEventListener("mousemove", function(e) { 
+    var cRect = canvas.getBoundingClientRect();              // Gets the CSS positions along with width/height
+    canvasX = e.clientX - cRect.left;			// Subtract the 'left' of the canvas from the X/Y
+    canvasY = e.clientY - cRect.top;         	// positions to get make (0,0) the top left of the
+	canvasX=Math.round(canvasX/(canvas.width/800));
+	canvasY=Math.round(canvasY/(canvas.height/400));
+});
+
+
+//Intervals------------------------------
+var myVar2 = setInterval(outprint,40);
+//----------------------------------------
+//Defaults------------------------------
+{
+var guion=0;
+var stateDelay = 0; var stateTimer = 0; var stateSpeed = 7;
+var sendName = ""; 
+
+var printout = ""; 
+var fade = 0; var sendScene = "";  var fadeTimer = 0; var fadeState = 0;  var changeFrame = 10; var maxFrame = 14; fadeImage = new Image(100, 200);
+var errormsgshow = 0; var errorTimer = 0; var errormsg = ""; var errortextsize = 30; var errorLast = 40; errorImage = new Image(100, 200);
+var movM = [0,0,0,0,0,0];var mov = movM.slice();var movD = [0,0,0,0,0,0];var movT = [0,0,0,0,0,0];var movS = [5,5,5,5,5,5];var zovM = [0,0,0,0,0,0];var zov = zovM.slice();var zovD = [0,0,0,0,0,0];var zovT = [0,0,0,0,0,0];var zovS = [5,5,5,5,5,5];
+
+tImage = new Image(); t2Image = new Image(); t3Image = new Image(); t4Image = new Image(); t5Image = new Image();
+
+cImage = new Image();c1Image = new Image();c2Image = new Image();c3Image = new Image();c4Image = new Image();c5Image = new Image();c6Image = new Image();c7Image = new Image();c8Image = new Image();c9Image = new Image();c10Image = new Image();
+cImage1 = new Image();cImage2 = new Image();cImage3 = new Image();cImage4 = new Image();cImage5 = new Image();cImage6 = new Image();cImage7 = new Image();cImage8 = new Image();cImage9 = new Image();cImage10 = new Image();
+var curr=0; var curr2=0; var curr3=0;
+}
+//--------------------------------------
+
+var nodown = 0; var rset1 = 0; var rset2 = 0;
+function clickfunc(){
+if (guion == 1){if (guiA[0] == "A"){guiA = [];if (canvasX > 0 && canvasX < 213 && canvasY > 0 && canvasY < 40){sptout = 'animplayer(1,"anim//","normal",1,20,0,' + String(stateM) + '-state,800,400);'; copytoclipboard(sptout); triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 40 && canvasY < 80){sptout = 'checksArray.push(new checks(state,scene,canvasX,canvasY,0.3));'; copytoclipboard(sptout); triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 80 && canvasY < 120){sptout='ctx.strokeStyle = "black"; ctx.lineWidth = 2;'; copytoclipboard(sptout); triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 120 && canvasY < 160){sptout='for (let i = 0; i < 4; i++){'; copytoclipboard(sptout); triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 160 && canvasY < 200){sptout='for (let i = 0; i < 5; i++){for (let z = 0; z < 2; z++){'; copytoclipboard(sptout); triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 200 && canvasY < 240){sptout='ctx.shadowColor = "black"; ctx.shadowBlur = 10;'; copytoclipboard(sptout); guiA = []; triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 240 && canvasY < 280){sptout='if (tArray.includes(sendName) == false){tArray.push(sendName);}'; copytoclipboard(sptout); guiA = []; triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 280 && canvasY < 310){sptout='array.splice(array.indexOf(sendName),1);'; copytoclipboard(sptout); guiA = []; triggerclear = 1;}if (canvasX > 0 && canvasX < 213 && canvasY > 310 && canvasY < 340){if (moverz == 0){sptout='ctx.drawImage(A1,0,' + String(stateM) + '-state-zov[0]+' + String(zovM[0]) + ',800,400);';}else{sptout='ctx.drawImage(A1,0,' + String(stateM) + '-state-mov[0]+' + String(movM[0]) + ',800,400);';}copytoclipboard(sptout); guiA = []; triggerclear = 1;}}}
+
+if (scene == "GEND"){
+	if (state==0){
+		if (curr!=-1+pArray.length/2&&canvasX > 490 && canvasX < 563 && canvasY > 169 && canvasY < 259){curr++;}
+		if (curr!=0&&canvasX > 225 && canvasX < 307 && canvasY > 169 && canvasY < 267){curr-=1;}
+		if (canvasX > 454 && canvasX < 552 && canvasY > 329 && canvasY < 382){
+			stateM=100;
+		}
+	}
+	if (state==100){
+		for (let i = 0; i < 5; i++){
+			if (canvasX > 38+148*i && canvasX < 169+148*i && canvasY > 105 && canvasY < 330){
+				xArray=["Kaley Cuoco","Alyson Hannigan","Kate Beckinsale","Hayden Panettiere","Keira Knightley"]
+				sendName=xArray[i]; stateM=200;
+				printout+="Married " + sendName + ".\n\n";
+			}
+		}
+	}
+	if (state==200){
+		for (let i = 0; i < 4; i++){
+			if (canvasX > 104+152*i && canvasX < 240+152*i && canvasY > 102 && canvasY < 341){
+				xArray = ["Ari Larter","Jaime Pressly","Lais Riberio","Sarah Michelle Gellar"];
+				sendName=xArray[i]; stateM=300;
+				printout+="Personal Trainer: " + sendName + ".\n\n"; tArray = [];
+			}
+		}
+	}	
+	if (state==300){
+		for (let i = 0; i < 6; i++){
+			if (canvasX > 9+130*i && canvasX < 131+130*i && canvasY > 89 && canvasY < 310){
+				xArray = ["Hilary Duff","Kristen Bell","Alice Eve","Heather Graham","Penelope Cruz","Olivia Taylor Dudley"]
+				sendName=xArray[i]; if (tArray.includes(sendName)==false){tArray.push(sendName);}
+				if (tArray.length>1){
+					printout+="Maids: " + tArray[0] + " and " + tArray[1] + ".";
+					copytoclipboard(printout);
+					stateM=400;
+				}
+			}
+		}
+	}
+}
+if (scene == "END"){
+	if (state==0){
+		if (canvasX > 280 && canvasX < 527 && canvasY > 249 && canvasY < 335){
+			for (let i = 0; i < pArray.length; i+=2){
+				atm[0]+=pArray[i+1]; 
+				if (i==0){printout+="Partners: " + pArray[0] + ", ";}
+				else{printout+=pArray[i] + ", ";}
+			}
+			printout=printout.slice(0,-2); printout+=".";
+			atm[0]=atm[0]/(pArray.length/2);
+			if (fade==0&&atm[0]>=2){printout+="\n\nTHE GOOD ENDING\n\n"; fade=1;sendScene="GEND";}
+			else{printout+="\n\nTHE BAD ENDING\n\n"; stateM=100;}
+		
+		}
+	}
+	if (state==100){
+		if (canvasX > 280 && canvasX < 527 && canvasY > 249 && canvasY < 335){
+			stateM=200;
+			copytoclipboard(printout);
+		}
+	}
+}
+if (scene == "intro"){
+	if (state==0&&canvasX > 225 && canvasX < 569 && canvasY > 273 && canvasY < 387){stateM=400;}
+	if (state==400&&canvasX > 452 && canvasX < 750 && canvasY > 295 && canvasY < 392){stateM=800;}
+	if (state==800&&canvasX > 459 && canvasX < 709 && canvasY > 320 && canvasY < 399){stateM=400*3;}
+	if (state==1200&&canvasX > 283 && canvasX < 524 && canvasY > 319 && canvasY < 398){stateM=400*4;}
+	if (state==1600&&canvasX > 157 && canvasX < 398 && canvasY > 313 && canvasY < 391){stateM=400*5;}
+	if (state==2000&&canvasX > 284 && canvasX < 532 && canvasY > 320 && canvasY < 395){stateM=400*6;}
+	if (state==2400&&canvasX > 275 && canvasX < 524 && canvasY > 304 && canvasY < 385){stateM=400*7;}
+	if (state==2800&&canvasX > 282 && canvasX < 518 && canvasY > 308 && canvasY < 387){fade=1;sendScene="M";}
+}
+if (scene == "M"){
+	if (mov[0]==0){
+		if (canvasX > 231 && canvasX < 444 && canvasY > 91 && canvasY < 130){
+			movM[0]=100; focus="V"; 
+			mat[4]++; if (mat[4]>4){mat[4]=1;}
+			if (mat[4]==1){atmS[0]="A";}
+			if (mat[4]==2){atmS[0]="B";}
+			if (mat[4]==3){atmS[0]="C";}
+			if (mat[4]==4){atmS[0]="D";}
+		}
+		if (canvasX > 210 && canvasX < 443 && canvasY > 135 && canvasY < 175){
+			movM[0]=100; focus="B";
+		}
+		if (canvasX > 352 && canvasX < 442 && canvasY > 180 && canvasY < 219){
+			movM[0]=100; focus="D"; curr=0;
+		}
+		if (canvasX > 303 && canvasX < 444 && canvasY > 227 && canvasY < 266){
+			if (pArray.length==0){errormsgshow=1;errormsg="Go on some dates first!";}
+			else{movM[0]=100; focus="P"; curr=0; shuffle(squotes);}
+		}
+	}
+	if (focus=="D"){
+		if (mov[0]==100){
+			if (canvasX > 694 && canvasX < 793 && canvasY > 2 && canvasY < 35){movM[0]=0;}
+			if (curr!=-1+dA.length/4&&canvasX > 667 && canvasX < 791 && canvasY > 87 && canvasY < 255){curr++;}
+			if (curr!=0&&canvasX > 8 && canvasX < 127 && canvasY > 89 && canvasY < 252){curr-=1;}
+			if (canvasX > 485 && canvasX < 698 && canvasY > 326 && canvasY < 372){
+				movM[0]=200; 
+				mat[0]=randInt(1,100); 
+				atm[0]=aicalc(dA[curr*4+2],dA[curr*4+3]); 
+				
+				if (mat[0]<atm[0]){mat[1]=1;}
+				else{mat[1]=-1;}
+			}
+		}
+		if (mov[0]==200){
+			if (mat[1]==1){
+				if (canvasX > 287 && canvasX < 525 && canvasY > 300 && canvasY < 369){
+					pArray.push(dA[curr*4]);
+					pArray.push(0);
+					for (let i = 0; i < 4; i++){dA.splice(curr*4,1);}
+				}
+			}
+			movM[0]=0; mov[0]=0; actn++;
+		}
+	}
+	
+	if (focus=="B"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 498 && canvasX < 788 && canvasY > 299 && canvasY < 393){movM[0]=200;}
+		}
+		if (mov[0]==200){
+			if (canvasX > 487 && canvasX < 787 && canvasY > 303 && canvasY < 389){
+				movM[0]=300; mat[0]=0; bdotA=[]; for (let i = 0; i < 50; i++){bdotA.push(new bdot());}
+			}
+		}
+		if (mov[0]==300){
+			for (let i = 0; i < bdotA.length; i++){
+				if (bdotA[i].hit==0&&bdotA[i].state>0&&bdotA[i].state<4){
+					if (canvasX>bdotA[i].x-12&&canvasX<bdotA[i].x-12+25){
+						if (canvasY>bdotA[i].y-12&&canvasY<bdotA[i].y-12+25){
+							bdotA[i].hit=1; mat[0]++;
+						}
+					}
+				}
+				if (mat[0]>=5&&movM[0]==300){movM[0]=400; si+=1; actn++;}
+			}
+			//ctx.strokeRect(this.x-12,this.y-12,25,25);
+		}
+		if (mov[0]==400){
+			if (canvasX > 483 && canvasX < 788 && canvasY > 295 && canvasY < 396){movM[0]=500;}
+		}
+		if (mov[0]==500){
+			if (canvasX > 228 && canvasX < 530 && canvasY > 309 && canvasY < 396){movM[0]=0;mov[0]=0;}
+		}
+	}
+	if (focus=="V"&&atmS[0]=="A"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 552 && canvasX < 789 && canvasY > 318 && canvasY < 389){movM[0]=200; mat[0]=1; mat[1]=0;}
+		}
+		if (mov[0]==200){
+			if (mat[0]==1&&canvasX > 448 && canvasX < 631 && canvasY > 217 && canvasY < 278){mat[0]=1.2; mat[1]++;}
+			if (mat[1]>9&&movM[0]==200){movM[0]=300; sa++;}
+		}
+		if (mov[0]==300){
+			if (canvasX > 543 && canvasX < 783 && canvasY > 303 && canvasY < 390){actn++; movM[0]=0; mov[0]=0;}
+		}
+	}
+	if (focus=="V"&&atmS[0]=="D"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 552 && canvasX < 789 && canvasY > 318 && canvasY < 389){movM[0]=200; mat[0]=1; mat[1]=0;}
+		}
+		if (mov[0]==200){
+			if (atm[0]==0&&canvasX > 448 && canvasX < 631 && canvasY > 217 && canvasY < 278){atm[0]=1; mat[1]++;}
+			if (mat[1]>9&&movM[0]==200){movM[0]=300; sa++;}
+		}
+		if (mov[0]==300){
+			if (canvasX > 543 && canvasX < 783 && canvasY > 303 && canvasY < 390){actn++; movM[0]=0; mov[0]=0;}
+		}
+	}
+	if (focus=="V"&&atmS[0]=="B"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 552 && canvasX < 789 && canvasY > 318 && canvasY < 389){movM[0]=200; mat[0]=1; mat[1]=0; atm[0]=0;}
+		}
+		if (mov[0]==200){
+			if (atm[0]==0&&canvasX > 588 && canvasX < 756 && canvasY > 204 && canvasY < 297){mat[1]++;atm[0]=1;}
+			if (mat[1]>9&&movM[0]==200){movM[0]=300; sa++;}
+		}
+		if (mov[0]==300){
+			if (canvasX > 543 && canvasX < 783 && canvasY > 303 && canvasY < 390){actn++; movM[0]=0; mov[0]=0;}
+		}
+	}
+	if (focus=="V"&&atmS[0]=="C"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 552 && canvasX < 789 && canvasY > 318 && canvasY < 389){movM[0]=200; mat[0]=1; mat[1]=0; atm[0]=0;}
+		}
+		if (mov[0]==200){
+			if (atm[0]==0&&canvasX > 588 && canvasX < 756 && canvasY > 204 && canvasY < 297){mat[1]++;atm[0]=1;}
+			if (mat[1]>9&&movM[0]==200){movM[0]=300; sa++;}
+		}
+		if (mov[0]==300){
+			if (canvasX > 543 && canvasX < 783 && canvasY > 303 && canvasY < 390){actn++; movM[0]=0; mov[0]=0;}
+		}
+	}
+	if (focus=="P"){
+		if (mov[0]<400&&canvasX > 696 && canvasX < 787 && canvasY > 3 && canvasY < 37){mov[0]=0;movM[0]=0;}
+		if (mov[0]==100){
+			if (canvasX > 737 && canvasX < 797 && canvasY > 181 && canvasY < 245){curr+=1;}
+			if (curr!=0&&canvasX > 1 && canvasX < 70 && canvasY > 180 && canvasY < 249){curr-=1;}
+			for (let z = 0; z < 3; z++){
+				if (canvasX > 110+202*z && canvasX < 285+202*z && canvasY > 88 && canvasY < 381){
+					if (pArray.length>curr*6+z*2){
+						sendName=pArray[curr*6+z*2];
+						movM[0]=200; pArray[1+curr*6+z*2]+=1;
+						atm[0]=1+curr*6+z*2;
+					}
+				}
+			}
+		}
+		if (mov[0]==200){
+			if (canvasX > 233 && canvasX < 748 && canvasY > 80 && canvasY < 389){movM[0]=300; tArray=[];}
+		}
+		if (mov[0]==300&&movM[0]==300){
+			for (let i = 0; i < 4; i++){for (let z = 0; z < 2; z++){
+				if (canvasX > 198+143*i && canvasX < 323+143*i && canvasY > 82+156*z && canvasY < 227+156*z){
+					if (tArray.includes(i+z*4)==false){tArray.push(i+z*4);}
+					if (tArray.length>1){movM[0]=400; movD[0]=20;}
+				}
+			}}
+		}
+		if (mov[0]==400){
+			if (canvasX > 313 && canvasX < 505 && canvasY > 342 && canvasY < 399){
+				movM[0]=0; movD[0]=0; mov[0]=0; actn++;  
+			}
+		}		
+	}
+}
+
+
+if (rset1 == 1){tArray = [];  t2Array = [];  t3Array = [];pArray = [];  p2Array = [];  p3Array = [];atm = [0,0,0,0,0,0];  atmS = ["","","","",""];movM = [0,0,0,0,0,0]; mov = movM.slice(); movD = [0,0,0,0,0,0]; movT = [0,0,0,0,0,0]; movS = [5,5,5,5,5,5];rset1 = 0;}if (rset2 == 1){xArray = [];  x2Array = [];  x3Array = [];yArray = [];  y2Array = [];  y3Array = [];mat = [0,0,0,0,0,0];  matS = ["","","","",""];zovM = [0,0,0,0,0,0]; zov = zovM.slice(); zovD = [0,0,0,0,0,0]; zovT = [0,0,0,0,0,0]; zovS = [5,5,5,5,5,5];rset2 = 0; }
+nodown = 0;
+}//End clickfunc
+
+{//RSETS------------------------------------------------------------
+//rset1
+var tArray = []; var t2Array = []; var t3Array = []; var pArray = []; var p2Array = []; var p3Array = []; var atm = [0,0,0,0,0,0]; var atmS = ["","","","",""];
+//rset2
+var xArray = []; var x2Array = []; var x3Array = []; var yArray = []; var y2Array = []; var y3Array = []; var mat = [0,0,0,0,0,0]; var matS = ["","","","",""];
+}
+//------------------------------------------------------------------
+//IMPORTANT----------------
+var scene = "intro";
+var stateM = 0;
+var state = stateM;
+var focus = "main";
+movM[0]=400*0; mov[0]=movM[0]; //* 
+zovM[0]=400*0; zov[0]=zovM[0]; //* 
+//------------------------
+var sa=1;
+var si=1;
+var actn=0;
+var totalact=24;
+
+
+var bdot = function(x,y) {
+	this.x=randInt(330,740);
+	this.y=randInt(77,341);
+	this.timer=0; this.dtimer=0;
+	this.delay=bdotA.length*randInt(50,60)+40;
+	this.state=0; this.stayTimer=0; this.hit=0;
+}
+bdot.prototype.draw = function() {
+	if (this.state==0){
+		this.dtimer+=1; 
+		if (this.dtimer>this.delay){this.state=1;}
+	}
+	if (this.state==1){
+		this.timer++; if (this.timer>100){this.state=2;}
+		ctx.globalAlpha=this.timer/100;
+		ctx.fillStyle = "black"; ctx.strokeStyle = "red"; ctx.lineWidth = 2;
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+		ctx.stroke(); ctx.fill();
+		ctx.globalAlpha=1;
+	}
+	if (this.state==2){
+	ctx.fillStyle = "black"; ctx.strokeStyle = "red"; ctx.lineWidth = 2;
+	ctx.beginPath();
+	ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+	ctx.stroke(); ctx.fill();
+	this.stayTimer++; if (this.stayTimer>10){this.state=3;}
+	}
+	if (this.state==3){
+	this.timer--; if (this.timer<1){this.state=4;}
+		ctx.globalAlpha=this.timer/100;
+		ctx.fillStyle = "black"; ctx.strokeStyle = "red"; ctx.lineWidth = 2;
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+		ctx.stroke(); ctx.fill();
+		ctx.globalAlpha=1;
+	}
+
+	if (this.hit==1){
+		ctx.fillStyle = "black"; ctx.strokeStyle = "green"; ctx.lineWidth = 2;
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+		ctx.stroke(); ctx.fill();
+	}
+	
+	if (this.state!=0){
+	//ctx.strokeStyle = "yellow"; ctx.lineWidth = 2;
+	//ctx.strokeRect(this.x-12,this.y-12,25,25);
+	}
+}
+var bdotA=[];
+
+//var dA = ["NAME","Description",Apperance Preference(1-5),Intellect Preference(1-5)"]; 
+var dA = ["Hailee Steinfeld","I like boys with a soft side, who can get real touchy and feely.",2,4, //137
+		  "Jenna Ortega","I love to party but hate getting hit on all the time! I need a big muscular man by my side to scare them off!",5,1, //119
+		  "Brie Larson","Everyone on here trying to fuck, I just want a man who can hold a conversation for over 5 seconds without breaking eye contact to stare at my chest.",3,5, //151
+		  "Alica Schmidt","I need someone to go jogging with, preferably someone in shape who can keep up with my pace!",3,1, //31
+		  "Emily Ratajkowski","Most guys only care about my body! Where the real men at?",3,5,//230
+		  "Lili Reinhart","Just be normal. I'm tired of all these fakes dudes out there putting on an act.",3,2,//53
+		  "Maya Hawke","I like smart, driven men. Being attractive is just a bonus.",1,3,//36
+		  "Chloe Grace Moretz","If you are here for a fun time and not a long time, I'm the one!",4,1,//82
+		  "Olivia Rodrigo","A lot of men out here looking like slobs. Is it really that hard to get into shape?",4,2,//84,
+		  "Sabrina Carpenter","I like funny guys who can make me laugh.",2,3,//110
+		  "Caylee Cowan","I'm a total brat and need a partner in crime!",4,1,
+		  "Romee Strijd","Looking to meet other hot people and do hot stuff.",3,1,
+		  "Aulii Cravalho","My standards aren't high, just don't be a creep.",2,1,//7.5
+		  "Billie Eilish","Many foolish men have tried to win me over, and many have failed.",5,4,
+		  "Joey King","I'm new to this dating thing, cute guys hit me up!",3,1,
+		  "Anna Sawai","My parents keep asking me when I'm gonna settle down, please help.",1,2,
+		  "Lily Rose Depp","Looking to get treated like a princess.",3,2,
+		  "Olivia Cooke","Looking for someone who knows how to carry a conversation.",1,3,
+		  "Isabela Merced","I need a hot guy to cuddle with rn.",3,1, //30
+		  "Madison Beer","Hot guys only! Sorry, not sorry.",5,1, //139
+		  "Katherine McNamara","Let's geek out over quantum computers together, or discuss ancient literature.",2,4, //36
+		  "Emily Feld","I'm looking to have a good time and try new things.",2,1,//35
+		  "Naomi Scott","Need someone to watch bad movies with.",2,3,//17
+		  "Alicia Agneson","Fuckboys go away! I want something serious.",1,1,//1
+		  "Natalie Alyn Lind","Make me laugh and make me cum. That's all I need.",2,2,//23
+		  ];
+		  
+pArray = dA.slice(); dA = [];
+p2Array = []; for (let i = 0; i < pArray.length/4; i++){p2Array.push(i);} shuffle(p2Array); 
+for (let i = 0; i < p2Array.length; i+=1){
+	dA.push(pArray[p2Array[i]*4]); 
+	dA.push(pArray[1+p2Array[i]*4]); 
+	dA.push(pArray[2+p2Array[i]*4]); 
+	dA.push(pArray[3+p2Array[i]*4]); 
+}
+pArray = []; p2Array = []; 
+
+
+var squotes = ["I haven't had dick that good in a while!","My legs are still shaking!","That was a huge load! I think I'm pregnant now."]; shuffle(squotes);
+
+function aicalc(ap,ip){
+	//let addn = sa*(2*ap)+si*(2*ip); if (addn>75){addn=75;}
+	let subn=0; let subn2=0;
+	if (sa<10){subn=(10-sa)*(ap);}
+	if (si<10){subn2=(10-si)*(ip);}
+	return 95-subn-subn2; 
+}
+
+//pArray = ["Hailee Steinfeld",0,"Jenna Ortega",1,"Alica Schmidt",2,"Brie Larson",5];
+var globalID;
+
+//-----
+//sendName=pArray[0]; movM[0]=300; focus="P"; atmS[0]="D"; //*
+//scene="GEND";  stateM=100;
+function repeatOften() {
+//BG
+ctx.fillStyle = "#bdfff2";
+ctx.fillRect(0,0,800,400);
+
+//SCENES
+if (scene == "GEND"){
+	if (state<100){
+		cImage.src = "cel/" + pArray[curr*2] + ".png";
+		ctx.drawImage(cImage,326,122,147,196);
+		ctx.drawImage(gend,0,0,800,400);
+		ctx.font = "900 17px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+		wrapText(pArray[curr*2], 347,345,179,22,"OFF");
+		if (curr!=-1+pArray.length/2){ctx.drawImage(gendR,0,0,800,400);}
+		if (curr!=0){ctx.drawImage(gendL,0,0,800,400);}
+	}
+	if (state>0&&state<200){
+		ctx.globalAlpha=state/100;
+		ctx.drawImage(gend2,0,0,800,400);
+		ctx.globalAlpha=1;
+	}
+	if (state>100&&state<300){
+		ctx.globalAlpha=-1+state/100;
+		ctx.drawImage(gend3,0,0,800,400);
+		ctx.globalAlpha=1;
+	}
+	if (state>200&&state<400){
+		ctx.globalAlpha=-2+state/100;
+		ctx.drawImage(gend4,0,0,800,400);
+		for (let i = 0; i < 6; i++){
+			if (tArray.includes(xArray[i])==true){ctx.drawImage(FUC,11+131.5*i,91,119,158);}
+		}
+		ctx.globalAlpha=1;
+	}
+	if (state>300&&state<500){
+		ctx.globalAlpha=-3+state/100;
+		ctx.drawImage(gend5,0,0,800,400);
+		ctx.globalAlpha=1;
+	}
+}
+if (scene == "END"){
+	if (state<100){
+		ctx.drawImage(end1,0,0,800,400);
+	}
+	if (state>0&&state<200){
+		ctx.globalAlpha=state/100;
+		ctx.drawImage(end2B,0,0,800,400);
+		ctx.globalAlpha=1;
+	}
+	if (state>100&&state<300){
+		ctx.globalAlpha=-1+state/100;
+		ctx.drawImage(end3B,0,0,800,400);
+		ctx.globalAlpha=1;
+	}
+}
+if (scene == "intro"){
+	if (state<400){
+	ctx.drawImage(intro,0,0-state,800,400);
+	}
+	if (state>0&&state<400*2){
+	ctx.drawImage(intro2,0,400-state,800,400);
+	}
+	if (state>400*1&&state<400*3){
+	ctx.drawImage(intro3,0,400*2-state,800,400);
+	}
+	if (state>400*2&&state<400*4){
+	ctx.drawImage(intro4,0,400*3-state,800,400);
+	}
+	if (state>400*3&&state<400*5){
+	ctx.drawImage(intro5,0,400*4-state,800,400);
+	}
+	if (state>400*4&&state<400*6){
+	ctx.drawImage(intro6,0,400*5-state,800,400);
+	}
+	if (state>400*5&&state<400*7){
+	ctx.drawImage(intro7,0,400*6-state,800,400);
+	}
+	if (state>400*6&&state<400*8){
+	ctx.drawImage(intro8,0,400*7-state,800,400);
+	}
+}
+if (scene == "M"){
+	if (totalact-actn<1&&fade==0){console.log("W");fade=1;sendScene="END";}
+	ctx.drawImage(main,0,0,800,400);
+	ctx.font = "700 20px Verdana"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+	ctx.fillText(String(sa),93,42);
+	ctx.fillText(String(si),93,92);
+	ctx.font = "900 18px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+	wrapText(String(totalact-actn) + " ACTIONS LEFT", 74,288,18,20,"OFF");
+	
+	if (mov[0]>0){
+		if (focus=="D"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			cImage.src = "cel/" + dA[curr*4] + ".png";
+			ctx.drawImage(cImage,139,47,187,249);
+			ctx.drawImage(date,0,0,800,400);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "right";
+			ctx.fillText(dA[curr*4],632,80);
+			if (curr!=0){ctx.drawImage(dateL,0,0,800,400);}
+			if (curr<-1+dA.length/4){ctx.drawImage(dateR,0,0,800,400);}
+			ctx.font = "700 18px Tahoma"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			wrapText(dA[curr*4+1], 505,121,250,23,"OFF");
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(String(aicalc(dA[curr*4+2],dA[curr*4+3])) + "% Chance of Success",318,370);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100){
+				ctx.globalAlpha=-1+mov[0]/100;
+				if (mat[1]==1){
+					c1Image.src = "cel/" + dA[curr*4] + ".png";
+					ctx.drawImage(c1Image,15,51,186,248);
+					ctx.drawImage(date2A,0,0,800,400);
+					ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+					wrapText(dA[curr*4] + " is now one of your partners.", 417,172,306,25,"OFF");
+				}
+				if (mat[1]==-1){
+					c1Image.src = "cel/" + dA[curr*4] + ".png";
+					ctx.drawImage(c1Image,15,52,186,248);
+					ctx.drawImage(date2B,0,0,800,400);
+					ctx.font = "700 18px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+					wrapText("Unfortunately, " + dA[curr*4] + " did not feel a connection. But there's plenty more fish in the sea!", 418,140,303,24,"OFF");
+				}
+				ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="B"){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(brainBG,0,0,800,400);
+			ctx.globalAlpha=1;
+			if (mov[0]<200){
+				if (mov[0]<=100){ctx.globalAlpha=mov[0]/100;}
+				else{ctx.globalAlpha=2-mov[0]/100;}
+				ctx.drawImage(brain1,0,0,800,400);
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+				ctx.globalAlpha=-1+mov[0]/100;
+				ctx.drawImage(brain2,0,0,800,400);
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+				ctx.globalAlpha=-2+mov[0]/100;
+				ctx.drawImage(brain3,0,0,800,400);
+				ctx.font = "700 20px Arial"; ctx.fillStyle = "white"; ctx.textAlign = "center";
+				ctx.fillText(mat[0]+"/5 Clicked",169,245);
+				for(var i = 0; i < bdotA.length ; i++) {bdotA[i].draw();}
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>300&&mov[0]<500){
+				ctx.globalAlpha=-3+mov[0]/100;
+				ctx.drawImage(brain4,0,0,800,400);
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>400&&mov[0]<600){
+				ctx.globalAlpha=-4+mov[0]/100;
+				ctx.drawImage(brain5,0,0,800,400);
+				ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+				ctx.fillText(si,412,231);
+				ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="V"&&atmS[0]=="A"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(gym1,0,0,800,400);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+			ctx.globalAlpha=-1+mov[0]/100;
+			ctx.drawImage(gym2,0,0,800,400);
+			if (mat[0]>1){mat[0]+=0.2;} if (mat[0]>6){mat[0]=1;}
+			tImage.src="M/workout/"+Math.round(mat[0])+".png";
+			ctx.drawImage(tImage,74,63,431/1.62,505/1.62);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(mat[1]+"/10 Done",542,297);
+			ctx.font = "700 25px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText("Do 10 Repetitions",535,174);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+			ctx.globalAlpha=-2+mov[0]/100;
+			ctx.drawImage(gym3,0,0,800,400);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(sa,666,230);
+			ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="V"&&atmS[0]=="B"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(gym1B,0,0,800,400);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+			ctx.globalAlpha=-1+mov[0]/100;
+			ctx.drawImage(gym2B,0,0,800,400);
+			if (atm[0]==1){mat[0]+=0.5; if (mat[0]>13){atm[0]=2;}}
+			if (atm[0]==2){mat[0]-=0.5; if (mat[0]<1){atm[0]=0;}}
+			tImage.src="M/workout2/"+Math.round(mat[0])+".png";
+			ctx.drawImage(tImage,14,78,515,276);
+			ctx.font = "900 24px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText("Do 10 Pushups",664,163);
+			ctx.font = "700 18px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(mat[1]+"/10 Done",672,279);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+			ctx.globalAlpha=-2+mov[0]/100;
+			ctx.drawImage(gym3B,0,0,800,400);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(sa,666,281);
+			ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="V"&&atmS[0]=="C"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(gym1C,0,0,800,400);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+			ctx.globalAlpha=-1+mov[0]/100;
+			ctx.drawImage(gym2C,0,0,800,400);
+			if (atm[0]==0){mat[0]=1;}
+			if (atm[0]==1){mat[0]+=0.5; if (mat[0]>12.5){atm[0]=0;}}
+			//if (atm[0]==2){mat[0]-=0.5; if (mat[0]<1){atm[0]=0;}}
+			tImage.src="M/workout3/"+Math.round(mat[0])+".png";
+			console.log(Math.round(mat[0]));
+			ctx.drawImage(tImage,60,96.1,447,268);
+			ctx.font = "900 24px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText("Do 10 Cycles",664,163);
+			ctx.font = "700 18px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(mat[1]+"/10 Done",672,279);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+			ctx.globalAlpha=-2+mov[0]/100;
+			ctx.drawImage(gym3C,0,0,800,400);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(sa,666,281);
+			ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="V"&&atmS[0]=="D"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(gym1D,0,0,800,400);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+			ctx.globalAlpha=-1+mov[0]/100;
+			ctx.drawImage(gym2D,0,0,800,400);
+			if (atm[0]==1){mat[0]+=0.5; if (mat[0]>6){atm[0]=2;}}
+			if (atm[0]==2){mat[0]-=0.5; if (mat[0]<1){atm[0]=0;}}
+			
+			tImage.src="M/workout4/"+Math.round(mat[0])+".png";
+			ctx.drawImage(tImage,107,68.3,223.5,306.5);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(mat[1]+"/10 Done",542,297);
+			ctx.font = "700 25px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText("Do 10 Squats",535,174);
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+			ctx.globalAlpha=-2+mov[0]/100;
+			ctx.drawImage(gym3D,0,0,800,400);
+			ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText(sa,666,230);
+			ctx.globalAlpha=1;
+			}
+		}
+		if (focus=="P"){
+			if (mov[0]<200){
+			ctx.globalAlpha=mov[0]/100;
+			ctx.drawImage(pro,0,0,800,400);
+			if (curr!=0){ctx.drawImage(proL,0,0,800,400);}
+			ctx.drawImage(proR,0,0,800,400);
+			for (let i = 0; i < 3; i++){
+				if (pArray.length>curr*6+i*2){
+					ctx.drawImage(proW,-200+200*i,0,800,400);
+					if (i==0){
+					cImage.src = "cel/" + pArray[curr*6+i*2] + ".png";
+					ctx.drawImage(cImage,132+200*i,96+16,136,182);
+					}
+					if (i==1){
+					c1Image.src = "cel/" + pArray[curr*6+i*2] + ".png";
+					ctx.drawImage(c1Image,132+200*i,96+16,136,182);
+					}
+					
+					if (i==2){
+					c2Image.src = "cel/" + pArray[curr*6+i*2] + ".png";
+					ctx.drawImage(c2Image,132+200*i,96+16,136,182);
+					}
+					ctx.font = "700 15px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+					wrapText(pArray[curr*6+i*2], 202+200*i,294+16,133,20,"OFF");
+					ctx.font = "700 14px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+					
+					if (pArray[1+curr*6+i*2]>3){
+						ctx.font = "900 15px Arial"; ctx.fillStyle = "#04702c"; ctx.textAlign = "center";
+						ctx.fillText("VERY HIGH",200+200*i,381);
+					}
+					else if (pArray[1+curr*6+i*2]>2){
+						ctx.font = "900 15px Arial"; ctx.fillStyle = "#308a0a"; ctx.textAlign = "center";
+						ctx.fillText("HIGH",200+200*i,381);
+					}
+					else if (pArray[1+curr*6+i*2]>1){
+						ctx.font = "900 15px Arial"; ctx.fillStyle = "#877d09"; ctx.textAlign = "center";
+						ctx.fillText("MEDIUM",200+200*i,381);
+					}
+					else if (pArray[1+curr*6+i*2]>0){
+						ctx.font = "900 15px Arial"; ctx.fillStyle = "#bd7528"; ctx.textAlign = "center";
+						ctx.fillText("LOW",200+200*i,381);
+					}
+					else{
+						ctx.font = "900 15px Arial"; ctx.fillStyle = "#820518"; ctx.textAlign = "center";
+						ctx.fillText("VERY LOW",200+200*i,381);
+					}
+				}
+			}
+			ctx.globalAlpha=1;
+			}
+			if (mov[0]>100&&mov[0]<300){
+				ctx.globalAlpha=-1+mov[0]/100;
+				cImage9.src = "cel/" + sendName + ".png";
+				ctx.drawImage(cImage9,22,105,137,183);
+				ctx.drawImage(pro2,0,0,800,400);
+				ctx.font = "700 17px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+				wrapText(sendName, 91,305,132,22,"OFF");
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>200&&mov[0]<400){
+				ctx.globalAlpha=-2+mov[0]/100;
+				cImage8.src = "cel/" + sendName + ".png";
+				ctx.drawImage(cImage8,22,105,137,183);
+				ctx.drawImage(pro3,0,0,800,400);
+				ctx.font = "700 17px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+				wrapText(sendName, 91,305,132,22,"OFF");
+				if (tArray.length>0){
+					for (let i = 0; i < 4; i++){
+						if (tArray.includes(i)==true){ctx.drawImage(pro3C,0+140*i,0,800,400);}
+						if (tArray.includes(i+4)==true){ctx.drawImage(pro3C,0+140*i,157,800,400);}
+					}
+				}
+				ctx.globalAlpha=1;
+			}
+			if (mov[0]>300&&mov[0]<500){
+				ctx.globalAlpha=-3+mov[0]/100;
+				cImage1.src = "cel/" + sendName + ".png";
+				ctx.drawImage(cImage1,208,76,138,184);
+				ctx.drawImage(pro4,0,0,800,400);
+				ctx.font = "700 20px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+				wrapText('"'+squotes[0]+'"', 486,115,225,25,"OFF");
+				ctx.font = "700 17px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+				wrapText(sendName, 276,277,132,22,"OFF");
+				ctx.font = "900 24px Arial";  ctx.textAlign = "center";
+				if (pArray[atm[0]]>3){
+					ctx.fillStyle = "#04702c"; ctx.textAlign = "center";
+					ctx.fillText("VERY HIGH",488,256);
+				}
+				else if (pArray[atm[0]]>2){
+					ctx.fillStyle = "#308a0a"; ctx.textAlign = "center";
+					ctx.fillText("HIGH",488,256);
+				}
+				else if (pArray[atm[0]]>1){
+					ctx.fillStyle = "#877d09"; ctx.textAlign = "center";
+					ctx.fillText("MEDIUM",488,256);
+				}
+				else if (pArray[atm[0]]>0){
+					ctx.fillStyle = "#bd7528"; ctx.textAlign = "center";
+					ctx.fillText("LOW",488,256);
+				}
+				else{
+					ctx.fillStyle = "#820518"; ctx.textAlign = "center";
+					ctx.fillText("VERY LOW",488,256);
+				}
+			}
+		}
+	}
+}
+
+//Smooth Scroll
+if (stateTimer < stateDelay){stateTimer+=1;}
+else{
+if (state < stateM){if (stateM - state <= 1){state = stateM;}else{state+=(stateM-state)/(stateSpeed);}}	
+if (state > stateM){if (state - stateM <= 1){state = stateM;}else{state-=(state-stateM)/(stateSpeed);}}
+}
+if (state == stateM){stateTimer = 0;}
+
+//Outline
+ctx.drawImage(foutline,0,0,800,400);
+
+//mov
+for (let a = 0; a < 6; a++){if (mov[a] != movM[a] && movT[a] < movD[a]){movT[a]+=(1);}else{if (mov[a] < movM[a]){if (movM[a] - mov[a] <= 1){mov[a] = movM[a];}else{mov[a]+=(movM[a]-mov[a])/(movS[a]);}}	if (mov[a] > movM[a]){if (mov[a] - movM[a] <= 1){mov[a] = movM[a];}else{mov[a]-=(mov[a]-movM[a])/(movS[a]);}}}if (mov[a] == movM[a]){movT[a] = 0;}}
+//zov
+for (let a = 0; a < 6; a++){if (zov[a] != zovM[a] && zovT[a] < zovD[a]){zovT[a]+=(1);}else{if (zov[a] < zovM[a]){if (zovM[a] - zov[a] <= 1){zov[a] = zovM[a];}else{zov[a]+=(zovM[a]-zov[a])/(zovS[a]);}}	if (zov[a] > zovM[a]){if (zov[a] - zovM[a] <= 1){zov[a] = zovM[a];}else{zov[a]-=(zov[a]-zovM[a])/(zovS[a]);}}}if (zov[a] == zovM[a]){zovT[a] = 0;}}
+
+//Errormsg
+if (errormsgshow == 1){errorTimer+=1;if (errorTimer < 8){errorImage.src = 'fade/error' + String(Math.floor(errorTimer)) + '.png'; ctx.drawImage(errorImage,0,0,800,400);}else{ctx.drawImage(error8,0,0,800,400); ctx.font = "900 " + String(errortextsize) + "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center"; ctx.fillText(errormsg,400,210);}	if (errorTimer > errorLast){errormsgshow = 2; errorTimer = 8;}}
+if (errormsgshow == 2){errorTimer-=0.7;if (errorTimer > 1){errorImage.src = 'fade/error' + String(Math.floor(errorTimer)) + '.png'; ctx.drawImage(errorImage,0,0,800,400);}else{errormsgshow = 0; errorTimer = 0;}}
+
+//Transition
+if (fade == 1){fadeTimer += 0.5
+if (fadeTimer > changeFrame){
+	state = 0; stateM = 0; scene = sendScene; curr=0; curr2=0; curr3=0; 
+	tArray = []; t2Array = []; t3Array = [];
+	//pArray = []; p2Array = []; p3Array = [];
+	atm = [0,0,0,0,0,0]; atmS = ["","","","",""];
+	xArray = []; x2Array = []; x3Array = [];
+	yArray = []; y2Array = []; y3Array = [];
+	mat = [0,0,0,0,0,0]; matS = ["","","","",""];
+	movM = [0,0,0,0,0,0]; mov = movM.slice(); movD = [0,0,0,0,0,0]; movT = [0,0,0,0,0,0]; movS = [5,5,5,5,5,5];
+	zovM = [0,0,0,0,0,0]; zov = zovM.slice(); zovD = [0,0,0,0,0,0]; zovT = [0,0,0,0,0,0]; zovS = [5,5,5,5,5,5];
+}
+if (fadeTimer > maxFrame){fadeTimer = 0; fade = 0;}if (fadeTimer < 10 && fadeTimer >= 1){fadeImage.src = 'fade/fadeanim/000' + String(Math.floor(fadeTimer)) + '.png';}if (fadeTimer >= 10){fadeImage.src = 'fade/fadeanim/00' + String(Math.floor(fadeTimer)) + '.png';}ctx.drawImage(fadeImage,0,0,800,400);}
+
+//GUI Visual
+if (guion == 1){
+	if (guiA[0] == "A"){
+		ctx.drawImage(fshortcuts,0,0,800,400);
+	}
+	if (guiA[0] == "R"){
+		ctx.strokeStyle = "black"; ctx.lineWidth = 1;
+		if (guiA[1] == "R"){ctx.strokeRect(sptArray[0],sptArray[1],sptArray[2]-sptArray[0],sptArray[3]-sptArray[1]);}
+		else{ctx.strokeRect(sptArray[0],sptArray[1],canvasX-sptArray[0],canvasY-sptArray[1]);}
+	}
+	if (guiA[0] == "B" && guiA[1] != "B" && guiA[1] != "V"){ctx.lineWidth = 2; ctx.strokeStyle = "red"; ctx.strokeRect(sptArray[0],sptArray[1], canvasX - sptArray[0], canvasY - sptArray[1]);}
+	if (guiA[1] == "B" || guiA[1] == "V"){ctx.strokeStyle = "red";ctx.strokeRect(sptArray[0],sptArray[1], sptArray[2] - sptArray[0], sptArray[3] - sptArray[1]);}if (guiA[0] == "D" && guiA[1] != "X" && guiA[1] != "Y" && guiA[1] != "D"){ctx.fillStyle = "blue"; ctx.fillRect(sptArray[0]-4,sptArray[1]-4,8,8);ctx.strokeStyle = "blue"; ctx.lineWidth = 2;ctx.beginPath();ctx.moveTo(sptArray[0]-4, sptArray[1]-4); ctx.lineTo(canvasX,canvasY);ctx.stroke();}
+	if (guiA[0] == "D" && guiA[1] == "X" || guiA[0] == "D" && guiA[1] == "Y" || guiA[0] == "D" && guiA[1] == "D"){ctx.strokeStyle = "blue"; ctx.lineWidth = 2;ctx.beginPath();ctx.moveTo(sptArray[0]-4, sptArray[1]-4);ctx.lineTo(sptArray[2], sptArray[3]);ctx.stroke();ctx.fillStyle = "blue"; ctx.fillRect(sptArray[0]-4,sptArray[1]-4,8,8); ctx.fillRect(sptArray[2]-4,sptArray[3]-4,8,8);}
+	if (guiA[0] == "T"){
+		if (guiA[1] == "T"){
+			ctx.font = "700 " + String(guifontsize) + "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
+			ctx.fillText("This is sample text",sptArray[0],sptArray[1]);
+		}
+		else if (guiA[1] == "L"&&guiA[2]!="T"){
+			ctx.font = "700 " + String(guifontsize) + "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "left";
+			ctx.fillText("This is sample text",canvasX,canvasY);
+		}
+		else if (guiA[1] == "L"&&guiA[2]=="T"){
+			ctx.font = "700 " + String(guifontsize) + "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "left";
+			ctx.fillText("This is sample text",sptArray[0],sptArray[1]);
+		}
+		else if (guiA[1] == "W"){ctx.font = "700 " + String(guifontsize) + "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center"; wrapText("this is text that should be wrapped okay it should lol okay", sptArray[0],sptArray[1],300,30,"OFF");}
+		else{ctx.font = "700 " + String(guifontsize)+ "px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";ctx.fillText("This is sample text",canvasX,canvasY);}}
+	if (guiA[0] == "I"){if (guiA[1] == "I"){ctx.fillStyle = "#ff99ff";ctx.fillRect(sptArray[0],sptArray[1],sptArray[2] - sptArray[0],(sptArray[2] - sptArray[0])*4/3);}else{ctx.fillStyle = "#ff99ff";ctx.fillRect(sptArray[0],sptArray[1],canvasX - sptArray[0],(canvasX - sptArray[0])*4/3);}}
+	if (guiA[0] == "W"){
+		if (guiA[1] == "1" || guiA[1] == "2"){
+			ctx.fillStyle = "#c1ffb8"; ctx.fillRect(sptArray[0]-4,sptArray[1]-4,5,5);
+		}
+		if (guiA[2] == "1" || guiA[1] == "2"){
+			ctx.fillStyle = "red"; ctx.fillRect(sptArray[2]-4,sptArray[1]-4,5,5);
+		}
+		if (guiA[3] == "1"){
+			ctx.fillStyle = "blue"; ctx.fillRect(sptArray[4]-4,sptArray[1]-4,5,5);
+		}
+		if (guiA[4] == "1"){
+			ctx.fillStyle = "#f0fc83"; ctx.fillRect(sptArray[2]-4,sptArray[7]-4,5,5);
+		}
+		
+		if (guiA[3] == "2"){
+			ctx.fillStyle = "blue"; ctx.fillRect(sptArray[0]-4,sptArray[5]-4,5,5);
+		}
+		if (guiA[4] == "2"){
+			ctx.fillStyle = "#f0fc83"; ctx.fillRect(sptArray[0]-4,sptArray[7]-4,5,5);
+		}
+		
+	}
+}
+
+  globalID = requestAnimationFrame(repeatOften);
+}//END REPEAT OFTEN
+
+globalID = requestAnimationFrame(repeatOften);
+
+
+var demo1ext = ""; var demo2ext = ""; var demo3ext = "";
+function outprint() {
+if (guion==1){
+	demo1ext = " //si: " + si;
+	demo2ext = "";
+	demo3ext = "";
+	document.getElementById("demo1").innerHTML = "|X: " + canvasX + "| Y: " + canvasY + " |SCENE: " + scene + " |STATE: " + state.toFixed(1) + " |FOCUS: " + focus + " |sendName: " + sendName + " |moverz: " + moverz + "|curr: " + curr + ", " + curr2 + ", " + curr3 + "|mov: " + mov[0].toFixed(0) + ", " + mov[1].toFixed(0) + ", " + mov[2].toFixed(0) + ", " + mov[3].toFixed(0) + ", " + mov[4].toFixed(0) + ", " + mov[5].toFixed(0) + " |zov: " + zov[0].toFixed(0) + ", " + zov[1].toFixed(0) + ", " + zov[2].toFixed(0) + ", " + zov[3].toFixed(0) + ", " + zov[4].toFixed(0) + ", " + zov[5].toFixed(0); document.getElementById("demo1").innerHTML += demo1ext;
+	document.getElementById("demo2").innerHTML = "|atm: " + atm[0].toFixed(0) + ", " + atm[1].toFixed(0) + ", " + atm[2].toFixed(0) + ", " + atm[3].toFixed(0) + ", " + atm[4].toFixed(0) + ", " + atm[5].toFixed(0) + "|atmS: " + atmS + "|tArray: " + tArray + "|t2Array: " + t2Array + "|t3Array: " + t3Array + "|pArray: " + pArray + "|p2Array: " + p2Array + "|p3Array: " + p3Array; document.getElementById("demo2").innerHTML += demo2ext;
+	document.getElementById("demo3").innerHTML = "|mat: " + mat[0].toFixed(0) + ", " + mat[1].toFixed(0) + ", " + mat[2].toFixed(0) + ", " + mat[3].toFixed(0) + ", " + mat[4].toFixed(0) + ", " + mat[5].toFixed(0) + "|matS: " + matS + "|xArray: " + xArray + "|x2Array: " + x2Array + "|x3Array: " + x3Array + "|yArray: " + yArray + "|y2Array: " + y2Array + "|y3Array: " + y3Array; document.getElementById("demo3").innerHTML += demo3ext;
+}
+
+//Print Out
+document.getElementById("textprint").innerHTML = printout; 
+}
+
+
+function copytoclipboard(text) {const elem = document.createElement('textarea');elem.value = text;document.body.appendChild(elem);elem.select();document.execCommand('copy');document.body.removeChild(elem);}
+function cprint(){
+	copytoclipboard(printout);
+	alert("Successfully Copied.");
+}
+function randInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var customFloor = function(value, roundTo) {
+    return Math.floor(value / roundTo) * roundTo;
+}
+var customCeil = function(value, roundTo) {
+    return Math.ceil(value / roundTo) * roundTo;
+}
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+function bishuffle(array,array2) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+	  
+	[array2[currentIndex], array2[randomIndex]] = [
+      array2[randomIndex], array2[currentIndex]];
+  }
+
+  return array;
+  return array2;
+}
+function ditract(srcArray,array,array2){
+	for (let i = 0; i < srcArray.length; i+=2){
+		array.push(srcArray[i]);
+		array2.push(srcArray[i+1]);
+	}
+	return array;
+	return array2;
+}
+var ogtext = "";
+function splitWord(text,part){
+	if (part == 0){
+		ogtext = text;
+		text = text.substring(0, text.indexOf(' '));
+		if (text != ""){return text;}
+		else{return ogtext;}
+	}
+	if (part == 1){
+		text = text.substring(text.indexOf(' ') + 1);
+		return text;
+	}
+}
+
+var cacheImage1 = new Image(100, 200); var cacheImage2 = new Image(100, 200); var cacheImage3 = new Image(100, 200); var cacheImage4 = new Image(100, 200); var cacheImage5 = new Image(100, 200); var cacheImage6 = new Image(100, 200); var cacheImage7 = new Image(100, 200); var cacheImage8 = new Image(100, 200); var cacheImage9 = new Image(100, 200); var cacheImage10 = new Image(100, 200);
+var animImage = new Image(100, 200);var animImage1 = new Image(100, 200);var animImage2 = new Image(100, 200);var animImage3 = new Image(100, 200);var animImage4 = new Image(100, 200);var animImage5 = new Image(100, 200);var animImage6 = new Image(100, 200);var animImage7 = new Image(100, 200);var animImage8 = new Image(100, 200);var animImage9 = new Image(100, 200);
+var animTimer = [0,0,0,0,0,0,0,0,0,0];var aState = [0,0,0,0,0,0,0,0,0,0,0];var aidlechecktimer = 0;var oldanimTimer = [0,0,0,0,0,0,0,0,0,0,0,0];
+function animplayer(channel,srclink,mode,speed,maxframe,x,y,w,h){
+	if (channel == 1){cacheImage1.src = srclink + "0001.png"; ctx.drawImage(cacheImage1,x,y,w,h);}
+	if (channel == 2){cacheImage2.src = srclink + "0001.png"; ctx.drawImage(cacheImage2,x,y,w,h);}
+	if (channel == 3){cacheImage3.src = srclink + "0001.png"; ctx.drawImage(cacheImage3,x,y,w,h);}
+	if (channel == 4){cacheImage4.src = srclink + "0001.png"; ctx.drawImage(cacheImage4,x,y,w,h);}
+	if (channel == 5){cacheImage5.src = srclink + "0001.png"; ctx.drawImage(cacheImage5,x,y,w,h);}
+	if (channel == 6){cacheImage6.src = srclink + "0001.png"; ctx.drawImage(cacheImage6,x,y,w,h);}
+	if (channel == 7){cacheImage7.src = srclink + "0001.png"; ctx.drawImage(cacheImage7,x,y,w,h);}
+	if (channel == 8){cacheImage8.src = srclink + "0001.png"; ctx.drawImage(cacheImage8,x,y,w,h);}
+	if (channel == 9){cacheImage9.src = srclink + "0001.png"; ctx.drawImage(cacheImage9,x,y,w,h);}
+	if (channel == 10){cacheImage10.src = srclink + "0001.png"; ctx.drawImage(cacheImage10,x,y,w,h);}
+	
+	if (mode == "normal"){
+	if (animTimer[channel] < maxframe){animTimer[channel]+=speed*(0.5);}else{animTimer[channel] = 0;}
+	
+	if (animTimer[channel] < 10 && animTimer[channel] >= 1){
+		if (channel == 1){animImage.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 2){animImage2.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 3){animImage3.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 4){animImage4.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 5){animImage5.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 6){animImage6.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 7){animImage7.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 8){animImage8.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 9){animImage9.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+	}
+	if (animTimer[channel] >= 10){
+		if (channel == 1){animImage.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 2){animImage2.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 3){animImage3.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 4){animImage4.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 5){animImage5.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 6){animImage6.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 7){animImage7.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 8){animImage8.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 9){animImage9.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+	}
+	if (channel == 1){ctx.drawImage(animImage,x,y,w,h);}
+	if (channel == 2){ctx.drawImage(animImage2,x,y,w,h);}
+	if (channel == 3){ctx.drawImage(animImage3,x,y,w,h);}
+	if (channel == 4){ctx.drawImage(animImage4,x,y,w,h);}
+	if (channel == 5){ctx.drawImage(animImage5,x,y,w,h);}
+	if (channel == 6){ctx.drawImage(animImage6,x,y,w,h);}
+	if (channel == 7){ctx.drawImage(animImage7,x,y,w,h);}
+	if (channel == 8){ctx.drawImage(animImage8,x,y,w,h);}
+	if (channel == 9){ctx.drawImage(animImage9,x,y,w,h);}}
+	
+	if (mode == "smooth"){
+	if (animTimer[channel] < 10 && animTimer[channel] >= 1){
+		if (channel == 1){animImage.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 2){animImage2.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 3){animImage3.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 4){animImage4.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 5){animImage5.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 6){animImage6.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 7){animImage7.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 8){animImage8.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 9){animImage9.src = srclink + "000" + String(Math.floor(animTimer[channel])) + '.png';}
+	}
+	if (animTimer[channel] >= 10){
+		if (channel == 1){animImage.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 2){animImage2.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 3){animImage3.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 4){animImage4.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 5){animImage5.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 6){animImage6.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 7){animImage7.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 8){animImage8.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+		if (channel == 9){animImage9.src = srclink + "00" + String(Math.floor(animTimer[channel])) + '.png';}
+	}
+	if (aState[channel] == 0){animTimer[channel]+=speed*(0.5); if (animTimer[channel] > maxframe){aState[channel] = 1;}}
+	if (aState[channel] == 1){animTimer[channel]-=speed*(0.5); if (animTimer[channel] < 1){aState[channel] = 0;}}
+	if (aState[channel] == 1 && animTimer[channel] > maxframe-5){animTimer[channel]-=speed*(0.5);}
+	if (aState[channel] == 0 && animTimer[channel] < 5){animTimer[channel]+=speed*(0.5);}
+	
+	if (channel == 1){ctx.drawImage(animImage,x,y,w,h);}if (channel == 2){ctx.drawImage(animImage2,x,y,w,h);}if (channel == 3){ctx.drawImage(animImage3,x,y,w,h);}if (channel == 4){ctx.drawImage(animImage4,x,y,w,h);}if (channel == 5){ctx.drawImage(animImage5,x,y,w,h);}if (channel == 6){ctx.drawImage(animImage6,x,y,w,h);}if (channel == 7){ctx.drawImage(animImage7,x,y,w,h);}if (channel == 8){ctx.drawImage(animImage8,x,y,w,h);}if (channel == 9){ctx.drawImage(animImage9,x,y,w,h);}}aidlechecktimer+=0.5;if (aidlechecktimer < 2){for (let i = 0; i < animTimer.length; i++){oldanimTimer[i] = animTimer[i];}}if (aidlechecktimer > 40){for (let i = 0; i < animTimer.length; i++){if (oldanimTimer[i] == animTimer[i]){animTimer[i] = 0; oldanimTimer[i] = 0; aState[i] = 0;}}aidlechecktimer = 0;}
+	
+}
+
+function wrapText(text, x, y, maxWidth, lineHeight,stroke) {
+	var words = text.split(' ');var line = '';
+	//ctx.strokeStyle = "white"; ctx.lineWidth = 3;
+	for(var n = 0; n < words.length; n++) {
+		var testLine = line + words[n] + ' ';var metrics = ctx.measureText(testLine);var testWidth = metrics.width;
+		if (testWidth > maxWidth && n > 0) {
+			if (stroke == "ON"){ctx.strokeText(line, x, y);}
+			ctx.fillText(line, x, y);
+			line = words[n] + ' ';y += lineHeight;
+		}
+		else {line = testLine;}} if (stroke == "ON"){ctx.strokeText(line, x, y);} ctx.fillText(line, x, y);
+}
+
+window.addEventListener("keydown", checkKeyPressed, false);var sptArray = []; var sptArray2 = []; var difArray = [];var guiA = [];var sptout = "";var triggerclear = 0;var guifontsize = 20;
+
+var arrayInsert = "tArray";
+var guiArrayInsert = tArray.slice();
+
+var alreadyStroked = 0;
+var guiadjx = 0; var guiadjy = 0;
+var moverz = 1;
+var galign = "center";
+function checkKeyPressed(evt) {
+	if (guion == 1){
+		if (evt.keyCode == "90"){moverz++; document.getElementById("myCanvas").style.border = "1px solid white"; if (moverz>1){moverz=0;  document.getElementById("myCanvas").style.border = "2px solid red";}}
+		if (evt.keyCode == "39"){guiadjx+=1;}
+		if (evt.keyCode == "37"){guiadjx-=1;}
+		if (evt.keyCode == "38"){guiadjy-=1;}
+		if (evt.keyCode == "40"){guiadjy+=1;}
+		
+		if (evt.keyCode == "87"){guiA.push("W");} if (evt.keyCode == "66"){guiA.push("B");}
+		if (evt.keyCode == "82"){guiA.push("R");} if (evt.keyCode == "76"){guiA.push("L");} 
+		if (evt.keyCode == "67"){guiA = []; sptArray = []; sptArray2 = [];}
+		
+		if (evt.keyCode == "65"){guiA.push("A");} if (evt.keyCode == "86"){guiA.push("V");}if (evt.keyCode == "68"){guiA.push("D");}if (evt.keyCode == "88"){guiA.push("X");}if (evt.keyCode == "89"){guiA.push("Y");}if (evt.keyCode == "84"){guiA.push("T");}if (evt.keyCode == "73"){guiA.push("I");}if (evt.keyCode == "83"){guiA.push("S");}if (evt.keyCode == "49"){guiA.push("1");}if (evt.keyCode == "50"){guiA.push("2");}if (evt.keyCode == "51"){guiA.push("3");}if (evt.keyCode == "38"){guifontsize+=1;}if (evt.keyCode == "40"){guifontsize-=1;}
+		if (guiA[0] == "S"){sptout = "";if (guiA[1] == "1"){for (var i = 1; i < 26; i++){if (i < 10){sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/000' + String(i) + '.png" alt="">';}else {sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/00' + String(i) + '.png" alt="">';}}triggerclear = 1; copytoclipboard(sptout);}if (guiA[1] == "2"){for (var i = 1; i < 51; i++){if (i < 10){sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/000' + String(i) + '.png" alt="">';}else {sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/00' + String(i) + '.png" alt="">';}}triggerclear = 1; copytoclipboard(sptout);}if (guiA[1] == "3"){for (var i = 1; i < 100; i++){if (i < 10){sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/000' + String(i) + '.png" alt="">';}else {sptout += '<img style="display:none; visibility:hidden;" src="anim/placeholder/00' + String(i) + '.png" alt="">';}}triggerclear = 1; copytoclipboard(sptout);}}
+		if (guiA[0] == "I"){
+			sptArray.push(canvasX);sptArray.push(canvasY);
+			if (guiA[1] == "I"){
+				sptArray.push(canvasX);sptArray.push(canvasY);
+				triggerclear = 1;sptout = 'ctx.drawImage(cImage,' + String(sptArray[0]) + ',' + String(sptArray[1]) + ',' + String(Math.round(sptArray[2] - sptArray[0])) + ',' + String(Math.round((sptArray[2] - sptArray[0])*4/3)) + ');';copytoclipboard(sptout);
+				if (guiA[2] == "S"){
+					if (moverz == 1){sptout = 'cImage.src = "cel/" + sendName + ".png";'; sptout+='\n\t\tctx.drawImage(cImage,' + String(sptArray[0]) + ',' + String(sptArray[1]) + ',' + String(Math.round(sptArray[2] - sptArray[0])) + ',' + String(Math.round((sptArray[2] - sptArray[0])*4/3)) + ');'; copytoclipboard(sptout);}
+					else{sptout = 'cImage.src = "cel/" + sendName + ".png";'; sptout+='\n\t\tctx.drawImage(cImage,' + String(sptArray[0]) + ',' + String(sptArray[1]) + '+' + String(stateM) + ',' + String(Math.round(sptArray[2] - sptArray[0])) + ',' + String(Math.round((sptArray[2] - sptArray[0])*4/3)) + ');'; copytoclipboard(sptout);}
+				}
+			}
+		}
+
+		
+		if (guiA[0] == "T" && guiA[1] == "T"){
+			sptArray.push(canvasX);sptArray.push(canvasY);triggerclear = 1;sptout = 'ctx.font = "700 ' + String(guifontsize) + 'px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";';
+			if (moverz == 1){sptout += '\n\t\tctx.fillText("",' + String(sptArray[0]) + ',' + sptArray[1]  +');';copytoclipboard(sptout);}
+			else{sptout += '\n\t\tctx.fillText("",' + String(sptArray[0]) + ',' + sptArray[1] +');';copytoclipboard(sptout);}
+		}
+		if (guiA[0] == "T" && guiA[1] == "L"&&guiA[2]=="T"){
+			sptArray.push(canvasX);sptArray.push(canvasY);triggerclear = 1;sptout = 'ctx.font = "700 ' + String(guifontsize) + 'px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "left";';
+			if (moverz == 1){sptout += '\n\t\tctx.fillText("",' + String(sptArray[0]) + ',' + sptArray[1]  +');';copytoclipboard(sptout);}
+			else{sptout += '\n\t\tctx.fillText("",' + String(sptArray[0]) + ',' + sptArray[1]  + ');';copytoclipboard(sptout);}
+		}
+		
+		if (guiA[0] == "T" && guiA[1] == "S"){
+			sptout='ctx.strokeStyle = "black"; ctx.lineWidth = 2;'; copytoclipboard(sptout); guiA = []; triggerclear = 1;
+		}
+		
+		if (guiA[0] == "T" && guiA[1] == "W"){
+			sptArray.push(canvasX);sptArray.push(canvasY);
+			triggerclear = 1;
+			sptout = 'ctx.font = "700 ' + String(guifontsize) + 'px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";';
+			sptout += '\n\t\twrapText("", ' + String(sptArray[0]) + ',' + String(sptArray[1]) + ',400,' + String(guifontsize+5) + ',"OFF");'; 
+			copytoclipboard(sptout);
+			
+			if (guiA[2] == "D"){
+				sptArray2.push(canvasX);
+				if (guiA[3] == "D"){
+				if (moverz == 1){sptArray2.push(canvasX); sptout = 'ctx.font = "700 ' + String(guifontsize) + 'px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";';sptout += '\n\t\twrapText("Placeholder Placeholder", ' + String(((sptArray2[1]+sptArray2[0])/2).toFixed(0)) + ',' + String(sptArray[1]) + ',' + String(Math.abs(sptArray2[1]-sptArray2[0])) + ',' + String(guifontsize+5) + ',"OFF");';}
+				else{sptArray2.push(canvasX); sptout = 'ctx.font = "700 ' + String(guifontsize) + 'px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";';sptout += '\n\t\twrapText("Placeholder Placeholder", ' + String(((sptArray2[1]+sptArray2[0])/2).toFixed(0)) + ',' + String(sptArray[1]) + ',' + String(Math.abs(sptArray2[1]-sptArray2[0])) + ',' + String(guifontsize+5) + ',"OFF");'; }
+				copytoclipboard(sptout); triggerclear = 1;
+				}
+			}
+		}
+		if (guiA[0] == "M"){sptout=".toLocaleString('en-US')"; copytoclipboard(sptout); triggerclear=1;}
+		if (guiA[0] == "D"){sptArray.push(canvasX);sptArray.push(canvasY);if (guiA[1] == "X"){sptArray.push(canvasX);sptArray.push(canvasY);sptout = String(Math.abs(sptArray[2] - sptArray[0])); copytoclipboard(sptout);triggerclear = 1;}if (guiA[1] == "Y"){sptArray.push(canvasX);sptArray.push(canvasY);sptout = String(Math.abs(sptArray[3] - sptArray[1])); copytoclipboard(sptout);triggerclear = 1;}if (guiA[1] == "D"){sptArray.push(canvasX);sptArray.push(canvasY);sptout = String(Math.abs(Math.round(sptArray[2] - sptArray[0])/2));sptout += "," + String(Math.round(Math.abs(sptArray[3] - sptArray[1])/2));copytoclipboard(sptout);triggerclear = 1;}}
+		if (guiA[0] == "B"){sptArray.push(canvasX); sptArray.push(canvasY);if (guiA[1] == "B"){sptArray.push(canvasX); sptArray.push(canvasY);sptout = "if (canvasX > " + String(sptArray[0]) + " && canvasX < " + String(sptArray[2]) + " && canvasY > " + String(sptArray[1]) + " && canvasY < " + String(sptArray[3]) + "){}";copytoclipboard(sptout); triggerclear = 1;}if (guiA[1] == "V"){sptArray.push(canvasX); sptArray.push(canvasY);sptout = "&& canvasX > " + String(sptArray[0]) + " && canvasX < " + String(sptArray[2]) + " && canvasY > " + String(sptArray[1]) + " && canvasY < " + String(sptArray[3]);copytoclipboard(sptout); triggerclear = 1;}}
+		if (guiA[0] == "A"){sptout = 'animplayer(1,"anim//","smooth",1,15,0,0,800,400);'; copytoclipboard(sptout); triggerclear = 1;}
+		if (guiA[0] == "A" && guiA[1] == "A"){sptout = 'checksArray.push(new checks(state,scene,canvasX,canvasY,0.3));'; copytoclipboard(sptout); triggerclear = 1;}
+		if (guiA[0] == "A" && guiA[1] == "A" && guiA[2] == "A"){sptout='ctx.strokeStyle = "black"; ctx.lineWidth = 2;'; copytoclipboard(sptout); triggerclear = 1;}
+		if (guiA[0] == "A" && guiA[1] == "A" && guiA[2] == "A" && guiA[3] == "A"){sptout='for (let i = 0; i < 2; i++){for (let z = 0; z < 2; z++){'; copytoclipboard(sptout); triggerclear = 1;}
+		if (guiA[0] == "A" && guiA[1] == "A" && guiA[2] == "A" && guiA[3] == "A" && guiA[4] == "A"){sptout='ctx.shadowColor = "black"; ctx.shadowBlur = 10;'; copytoclipboard(sptout); guiA = []; triggerclear = 1;}
+		if (guiA[0] == "W" && guiA[1] == "1"){//X-Axis Selecting multiple
+			sptArray.push(canvasX);sptArray.push(canvasY);
+			if (guiA[4]=="1"){
+				sptout="for (let i = 0; i < 4; i++){if (canvasX > " + sptArray[0] + "+" + String(sptArray[4]-sptArray[0]) + "*i" + " && canvasX < " + sptArray[2] + "+" + String(sptArray[4]-sptArray[0]) + "*i" + " && canvasY > " + sptArray[3] + " && canvasY < " + sptArray[7] + "){\n\t\t\tsendName=[i]; mat[0]=i;\n\t\t}};";
+				copytoclipboard(sptout); triggerclear = 1;
+			}
+		}
+		if (guiA[0] == "R"){
+			sptArray.push(canvasX); sptArray.push(canvasY);
+			if (guiA[1] == "R"){
+				if (alreadyStroked == 0){sptout = 'ctx.strokeStyle = "black"; ctx.lineWidth = 1'; sptout += '\n\t\tctx.strokeRect('+sptArray[0]+','+sptArray[1]+'-state+' + stateM+','+String(sptArray[2]-sptArray[0])+','+String(sptArray[3]-sptArray[1])+');';}
+				else{sptout = 'ctx.strokeRect('+sptArray[0]+','+sptArray[1]+'-state+' + stateM+','+String(sptArray[2]-sptArray[0])+','+String(sptArray[3]-sptArray[1])+');';}
+				copytoclipboard(sptout);
+				alreadyStroked = 1;
+			}
+		}
+	}	
+}
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+</script>
+<div style="background-color:rgba(0, 0, 0,0.6)">
+<p class="a" id = "demo1" value = ""></p>
+<p class="a" id = "demo2" value = ""></p>
+<p class="a" id = "demo3" value = ""></p>
+</div>
+<div align="center" style="margin-top:20px;">
+<textarea  onclick = "cprint()" id="textprint" rows="4" cols="40"  style="font-weight:600; color:black; border:2px solid black; margin: 0 auto; background-color:white;"readonly></textarea>
+<button id="copyButton" onclick="cprint()">COPY TO CLIPBOARD</button>
+</div>
+
+</html> 
+
+
+
+
