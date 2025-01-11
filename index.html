@@ -313,7 +313,7 @@ if (scene == "GEND"){
 			if (canvasX > 104+152*i && canvasX < 240+152*i && canvasY > 102 && canvasY < 341){
 				xArray = ["Ari Larter","Jaime Pressly","Lais Riberio","Sarah Michelle Gellar"];
 				sendName=xArray[i]; stateM=300;
-				printout+="Personal Trainer: " + sendName + ".\n\n"; tArray = [];
+				printout+="Personal Trainer -  " + sendName + ".\n\n"; tArray = [];
 			}
 		}
 	}	
@@ -323,7 +323,7 @@ if (scene == "GEND"){
 				xArray = ["Hilary Duff","Kristen Bell","Alice Eve","Heather Graham","Penelope Cruz","Olivia Taylor Dudley"]
 				sendName=xArray[i]; if (tArray.includes(sendName)==false){tArray.push(sendName);}
 				if (tArray.length>1){
-					printout+="Maids: " + tArray[0] + " and " + tArray[1] + ".";
+					printout+="Maids - " + tArray[0] + " and " + tArray[1] + ".";
 					copytoclipboard(printout);
 					stateM=400;
 				}
@@ -336,7 +336,7 @@ if (scene == "END"){
 		if (canvasX > 280 && canvasX < 527 && canvasY > 249 && canvasY < 335){
 			for (let i = 0; i < pArray.length; i+=2){
 				atm[0]+=pArray[i+1]; 
-				if (i==0){printout+="Partners: " + pArray[0] + ", ";}
+				if (i==0){printout+="Partners -  " + pArray[0] + ", ";}
 				else{printout+=pArray[i] + ", ";}
 			}
 			printout=printout.slice(0,-2); printout+=".";
