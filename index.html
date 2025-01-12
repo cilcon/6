@@ -297,6 +297,7 @@ if (scene == "GEND"){
 		if (curr!=0&&canvasX > 225 && canvasX < 307 && canvasY > 169 && canvasY < 267){curr-=1;}
 		if (canvasX > 454 && canvasX < 552 && canvasY > 329 && canvasY < 382){
 			stateM=100;
+			printout+="Married " + pArray[curr*2] + ".\n\n";
 		}
 	}
 	if (state==100){
@@ -304,7 +305,7 @@ if (scene == "GEND"){
 			if (canvasX > 38+148*i && canvasX < 169+148*i && canvasY > 105 && canvasY < 330){
 				xArray=["Kaley Cuoco","Alyson Hannigan","Kate Beckinsale","Hayden Panettiere","Keira Knightley"]
 				sendName=xArray[i]; stateM=200;
-				printout+="Married " + sendName + ".\n\n";
+				printout+="Personal Trainer -  " + sendName + ".\n\n"; tArray = [];
 			}
 		}
 	}
@@ -313,7 +314,7 @@ if (scene == "GEND"){
 			if (canvasX > 104+152*i && canvasX < 240+152*i && canvasY > 102 && canvasY < 341){
 				xArray = ["Ari Larter","Jaime Pressly","Lais Riberio","Sarah Michelle Gellar"];
 				sendName=xArray[i]; stateM=300;
-				printout+="Personal Trainer -  " + sendName + ".\n\n"; tArray = [];
+				printout+="Lifeguard -  " + sendName + ".\n\n"; tArray = [];
 			}
 		}
 	}	
